@@ -1,72 +1,457 @@
 {
-  "updated": "2026-09-13",
-  "links": {
-    "android": "https://github.com/devmadan2004-lang/simplicity-download/releases/latest/download/simplicity.apk",
-    "ios": "https://testflight.apple.com/join/XgGwYsH2",
-    "download_page": "https://devmadan2004-lang.github.io/simplicity-download/",
-    "help": "https://devmadan2004-lang.github.io/simplicity/help/",
-    "privacy": "https://devmadan2004-lang.github.io/simplicity-download/privacy.html"
-  },
-  "compilation": { "title_hi": "पूरा परिचय — सारे फ़ीचर एक वीडियो में", "title_en": "Complete walkthrough", "video": "", "poster": "", "duration": 0 },
-  "roles": [
+ "updated": "2026-09-13",
+ "links": {
+  "android": "https://github.com/devmadan2004-lang/simplicity-download/releases/latest/download/simplicity.apk",
+  "ios": "https://testflight.apple.com/join/XgGwYsH2",
+  "download_page": "https://devmadan2004-lang.github.io/simplicity-download/",
+  "help": "https://devmadan2004-lang.github.io/simplicity/help/",
+  "privacy": "https://devmadan2004-lang.github.io/simplicity-download/privacy.html"
+ },
+ "compilation": {
+  "title_hi": "पूरा परिचय — सारे फ़ीचर एक वीडियो में",
+  "title_en": "Complete walkthrough",
+  "video": "",
+  "poster": "",
+  "duration": 0
+ },
+ "roles": [
+  {
+   "id": "employee",
+   "title_en": "Employees",
+   "title_hi": "कर्मचारी",
+   "tagline": "Office & site staff — attendance, reports, requests",
+   "sections": [
     {
-      "id": "employee", "title_en": "Employees", "title_hi": "कर्मचारी", "tagline": "Office & site staff — attendance, reports, requests",
-      "sections": [
-        { "title_en": "Getting started", "title_hi": "शुरुआत", "features": [
-          { "slug": "install-android", "title_hi": "एंड्रॉइड पर इंस्टॉल", "title_en": "Install on Android", "desc": "APK download → install → login", "icon": "download", "duration": 48,
-            "video": "https://github.com/devmadan2004-lang/simplicity/releases/download/videos-test/02-live-map.mp4",
-            "poster": "" },
-          { "slug": "install-iphone", "title_hi": "आईफ़ोन पर इंस्टॉल", "title_en": "Install on iPhone", "desc": "TestFlight se install → login", "icon": "apple", "duration": 55,
-            "video": "",
-            "poster": "" },
-          { "slug": "login", "title_hi": "लॉगिन", "title_en": "Login with your code", "desc": "Employee code se login, phir apna dashboard", "icon": "key", "duration": 40,
-            "video": "",
-            "poster": "" }
-        ]},
-        { "title_en": "Daily work", "title_hi": "रोज़ का काम", "features": [
-          { "slug": "attendance", "title_hi": "हाज़िरी", "title_en": "Mark attendance", "desc": "Office mein QR scan, site pe GPS se punch-in", "icon": "qr", "duration": 62,
-            "video": "",
-            "poster": "" },
-          { "slug": "dpr", "title_hi": "डेली रिपोर्ट (DPR)", "title_en": "Daily progress report", "desc": "Photo lo, kaam likho, submit — team ko dikhega", "icon": "camera", "duration": 70,
-            "video": "",
-            "poster": "" },
-          { "slug": "leave-od-expense", "title_hi": "छुट्टी, OD और खर्चा", "title_en": "Leave, OD & expense", "desc": "Request bhejo, approval track karo", "icon": "calendar", "duration": 58,
-            "video": "",
-            "poster": "" }
-        ]}
-      ]
+     "title_en": "Getting started",
+     "title_hi": "शुरुआत",
+     "features": [
+      {
+       "slug": "install-android",
+       "title_hi": "एंड्रॉइड पर इंस्टॉल",
+       "title_en": "Install on Android",
+       "desc": "APK download → install → login, 14 steps",
+       "icon": "download",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "install-iphone",
+       "title_hi": "आईफ़ोन पर इंस्टॉल",
+       "title_en": "Install on iPhone",
+       "desc": "TestFlight se, 12 steps",
+       "icon": "apple",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "register",
+       "title_hi": "नया कर्मचारी — रजिस्टर",
+       "title_en": "Register as a new employee",
+       "desc": "Code nahi hai? App se register karo, HR approve karega",
+       "icon": "user-plus",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "login",
+       "title_hi": "कोड से लॉगिन",
+       "title_en": "Sign in with your code",
+       "desc": "Na password, na email — bas employee code",
+       "icon": "key",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      }
+     ]
     },
     {
-      "id": "admin", "title_en": "Admins", "title_hi": "एडमिन", "tagline": "Live map, approvals, reports, team",
-      "sections": [
-        { "title_en": "Oversight", "title_hi": "टीम पर नज़र", "features": [
-          { "slug": "live-map", "title_hi": "लाइव मैप", "title_en": "Live map", "desc": "Kaun kahan hai — poori site team ek map pe", "icon": "map-pin", "duration": 52,
-            "video": "https://github.com/devmadan2004-lang/simplicity/releases/download/videos-test/02-live-map.mp4",
-            "poster": "" },
-          { "slug": "approvals", "title_hi": "अप्रूवल", "title_en": "Approvals", "desc": "Leave, OD, expense — ek tap mein approve ya reject", "icon": "check", "duration": 45,
-            "video": "",
-            "poster": "" },
-          { "slug": "reports", "title_hi": "टीम रिपोर्ट", "title_en": "Team reports", "desc": "DPR, attendance aur expense ka summary", "icon": "file-text", "duration": 60,
-            "video": "",
-            "poster": "" }
-        ]}
-      ]
+     "title_en": "Daily work",
+     "title_hi": "रोज़ का काम",
+     "features": [
+      {
+       "slug": "attendance-office",
+       "title_hi": "ऑफ़िस हाज़िरी — जी पी एस + क्यू आर",
+       "title_en": "Office attendance",
+       "desc": "GPS check, phir office ka QR scan — bina office aaye namumkin",
+       "icon": "qr",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "attendance-site",
+       "title_hi": "साइट स्टाफ़ — जी पी एस से हाज़िरी",
+       "title_en": "Site staff attendance",
+       "desc": "Site pe pahuncho, ek tap — GPS se attendance",
+       "icon": "map-pin",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "dpr",
+       "title_hi": "डी पी आर — रोज़ की रिपोर्ट",
+       "title_en": "Daily progress report",
+       "desc": "Photo + remark, mausam apne aap — roz 6 baje se pehle",
+       "icon": "camera",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "od",
+       "title_hi": "ओ डी — बाहर का काम",
+       "title_en": "Official duty (OD)",
+       "desc": "Client visit ya site — request bhejo, approve hote hi attendance auto",
+       "icon": "truck",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "timeline",
+       "title_hi": "माय टाइमलाइन",
+       "title_en": "My timeline & reminders",
+       "desc": "Reminder, diary, finance — sab apne waqt pe bajega",
+       "icon": "clock",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "chat",
+       "title_hi": "चैट",
+       "title_en": "Team chat",
+       "desc": "Group aur one-to-one, photo aur file ke saath",
+       "icon": "message",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "leaderboard",
+       "title_hi": "लीडरबोर्ड",
+       "title_en": "Leaderboard & points",
+       "desc": "Samay pe attendance = 10 point, DPR podium",
+       "icon": "trophy",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      }
+     ]
     },
     {
-      "id": "hr", "title_en": "HR", "title_hi": "एच आर", "tagline": "Onboarding, people, attendance records",
-      "sections": [
-        { "title_en": "People", "title_hi": "लोग", "features": [
-          { "slug": "new-joiner", "title_hi": "नया कर्मचारी जोड़ें", "title_en": "Approve new joiners", "desc": "Naye login ko approve karo, role set karo", "icon": "user-plus", "duration": 50,
-            "video": "",
-            "poster": "" },
-          { "slug": "profiles", "title_hi": "प्रोफ़ाइल", "title_en": "People & profiles", "desc": "Details, documents aur designation update", "icon": "users", "duration": 44,
-            "video": "",
-            "poster": "" },
-          { "slug": "attendance-records", "title_hi": "हाज़िरी रिकॉर्ड", "title_en": "Attendance records", "desc": "Mahine ka record dekho, export karo", "icon": "clock", "duration": 47,
-            "video": "",
-            "poster": "" }
-        ]}
-      ]
+     "title_en": "Requests & money",
+     "title_hi": "रिक्वेस्ट और हिसाब",
+     "features": [
+      {
+       "slug": "expense",
+       "title_hi": "ख़र्च क्लेम",
+       "title_en": "Expense claim",
+       "desc": "Receipt ki photo — claim seedha finance tak",
+       "icon": "receipt",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "leave-wfh-travel",
+       "title_hi": "छुट्टी, वर्क फ़्रॉम होम, ट्रैवल",
+       "title_en": "Leave, WFH & travel requests",
+       "desc": "Teeno requests profile se, do minute mein",
+       "icon": "calendar",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "profile",
+       "title_hi": "प्रोफ़ाइल और डॉक्यूमेंट",
+       "title_en": "Profile, documents & settings",
+       "desc": "Apni jaankari, documents, bhasha, sign out",
+       "icon": "settings",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "complaint",
+       "title_hi": "कंप्लेंट बॉक्स",
+       "title_en": "Complaint & suggestion box",
+       "desc": "Shikayat ya sujhaav — seedha management tak",
+       "icon": "bell",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      }
+     ]
+    },
+    {
+     "title_en": "Role extras",
+     "title_hi": "रोल के हिसाब से",
+     "features": [
+      {
+       "slug": "quotations",
+       "title_hi": "कोटेशन — सेल्स और मैनेजर",
+       "title_en": "Quotations",
+       "desc": "Quotation banao, track karo — admin tak apne aap",
+       "icon": "file-text",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "finance-receipts",
+       "title_hi": "फ़ाइनेंस — रसीदें",
+       "title_en": "Finance: approve receipts",
+       "desc": "Team ke kharche yahin approve hote hain",
+       "icon": "check",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "supervisor",
+       "title_hi": "साइट सुपरवाइज़र",
+       "title_en": "Site supervisor",
+       "desc": "Apni site ki team aur saari reports",
+       "icon": "briefcase",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      }
+     ]
     }
-  ]
+   ]
+  },
+  {
+   "id": "admin",
+   "title_en": "Admins",
+   "title_hi": "एडमिन",
+   "tagline": "Live map, approvals, reports, team",
+   "sections": [
+    {
+     "title_en": "Watch the team",
+     "title_hi": "टीम पर नज़र",
+     "features": [
+      {
+       "slug": "live-map",
+       "title_hi": "लाइव मैप",
+       "title_en": "Live map",
+       "desc": "Poori team map pe, apne aap taaza — fetch now bhi",
+       "icon": "map-pin",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "pulse",
+       "title_hi": "पल्स",
+       "title_en": "Pulse — today at a glance",
+       "desc": "Aaj kaun aaya, kaun nahi, kaun late — Excel export",
+       "icon": "home",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "dpr-review",
+       "title_hi": "डी पी आर रिव्यू",
+       "title_en": "Review daily reports",
+       "desc": "Sabki reports ek jagah — photo, remark, mausam",
+       "icon": "file-text",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      }
+     ]
+    },
+    {
+     "title_en": "Approvals",
+     "title_hi": "अप्रूवल",
+     "features": [
+      {
+       "slug": "od-approvals",
+       "title_hi": "ओ डी अप्रूवल और ट्रैकिंग",
+       "title_en": "OD approvals & live trail",
+       "desc": "Ek tap approve, phir poora raasta live",
+       "icon": "truck",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "approvals",
+       "title_hi": "बाकी अप्रूवल",
+       "title_en": "Other approvals",
+       "desc": "Leave, WFH, travel — notification pe ek tap",
+       "icon": "check",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      }
+     ]
+    },
+    {
+     "title_en": "Operations",
+     "title_hi": "ऑपरेशन्स",
+     "features": [
+      {
+       "slug": "admin-panel",
+       "title_hi": "एडमिन पैनल",
+       "title_en": "Admin panel",
+       "desc": "Staff, sites, records, QR — saare control ek jagah",
+       "icon": "shield",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "quotes",
+       "title_hi": "कोट्स",
+       "title_en": "Quotations",
+       "desc": "Team ke saare quotations, status ke saath",
+       "icon": "file-text",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "complaint-inbox",
+       "title_hi": "कंप्लेंट इनबॉक्स",
+       "title_en": "Complaint inbox",
+       "desc": "Poori team ki shikayat aur sujhaav — naam ke saath",
+       "icon": "bell",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "birthdays",
+       "title_hi": "बर्थडे",
+       "title_en": "Birthdays",
+       "desc": "Aaj aur agle 45 din — subah 9 baje reminder",
+       "icon": "star",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "board-chat-admin",
+       "title_hi": "बोर्ड और चैट",
+       "title_en": "Leaderboard & chat",
+       "desc": "Podium, points aur team chat — admin ke liye bhi",
+       "icon": "trophy",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "visitors",
+       "title_hi": "विज़िटर चेक-इन",
+       "title_en": "Visitor check-in",
+       "desc": "Front desk QR → website — visitor ko app nahi chahiye",
+       "icon": "globe",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hr",
+   "title_en": "HR",
+   "title_hi": "एच आर",
+   "tagline": "Onboarding, people, attendance records",
+   "sections": [
+    {
+     "title_en": "New employee",
+     "title_hi": "नया कर्मचारी",
+     "features": [
+      {
+       "slug": "onboarding",
+       "title_hi": "नया कर्मचारी — अप्रूवल और कोड",
+       "title_en": "Onboarding a new employee",
+       "desc": "Register → HR approve → role → code — shuru se aakhir tak",
+       "icon": "user-plus",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "people",
+       "title_hi": "पीपल — पूरा स्टाफ़",
+       "title_en": "People directory",
+       "desc": "Poora staff, role aur site ke saath — nayi applications bhi yahin",
+       "icon": "users",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      }
+     ]
+    },
+    {
+     "title_en": "Daily work",
+     "title_hi": "रोज़ का काम",
+     "features": [
+      {
+       "slug": "hr-home",
+       "title_hi": "एच आर होम — क्विक ऐक्शन",
+       "title_en": "HR home & quick actions",
+       "desc": "Pulse, records editor, people, attendance, QR — ek screen",
+       "icon": "home",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "attendance-records",
+       "title_hi": "हाज़िरी के रिकॉर्ड",
+       "title_en": "Attendance records",
+       "desc": "Kisi bhi din ka record, sudhaar, Excel — payroll ke liye",
+       "icon": "calendar",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "hr-pulse-dpr",
+       "title_hi": "पल्स और डी पी आर",
+       "title_en": "Pulse & reports for HR",
+       "desc": "Aaj ki team aur saari sites ki reports",
+       "icon": "file-text",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "hr-visitors",
+       "title_hi": "विज़िटर चेक-इन",
+       "title_en": "Visitor check-in",
+       "desc": "Front desk QR → website — reception ko list",
+       "icon": "globe",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      },
+      {
+       "slug": "hr-more",
+       "title_hi": "टाइमलाइन, चैट, बोर्ड",
+       "title_en": "Timeline, chat & board",
+       "desc": "Baaki sab — HR ke liye bhi wahi",
+       "icon": "list",
+       "duration": 0,
+       "video": "",
+       "poster": ""
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }
