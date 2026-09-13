@@ -18,7 +18,9 @@
     visitor: 'https://devmadan2004-lang.github.io/simplicity-visitor/',
     help: 'https://devmadan2004-lang.github.io/simplicity/help/',
     privacy: 'https://devmadan2004-lang.github.io/simplicity-download/privacy.html',
-    catalogue: 'https://devmadan2004-lang.github.io/simplicity/Simplicity-App-Catalogue.pdf'
+    catalogue_employee: 'https://devmadan2004-lang.github.io/simplicity/Simplicity-App-Employees.pdf',
+    catalogue_admin: 'https://devmadan2004-lang.github.io/simplicity/Simplicity-App-Admins.pdf',
+    catalogue_hr: 'https://devmadan2004-lang.github.io/simplicity/Simplicity-App-HR.pdf'
   };
   var SUPPORT_URL = 'https://ejiugojnbdzsshywekmq.supabase.co/functions/v1/support-ticket';
 
@@ -152,7 +154,7 @@
         return r.json();
       }).then(function (cat) {
         if (cat && cat.links) {
-          ['android', 'ios', 'download_page', 'visitor', 'help', 'privacy', 'catalogue'].forEach(function (k) {
+          ['android', 'ios', 'download_page', 'visitor', 'help', 'privacy'].forEach(function (k) {
             var v = safeUrl(cat.links[k]); if (v) LINKS[k] = v;
           });
           mountAllDownloads();
@@ -327,12 +329,20 @@
     return '<div class="lrow walk" id="walk">' + tile('film', 'cyan') +
       '<span class="lbody"><span class="llabel">' + esc(walk ? walk.title_en : 'Complete walkthrough') + '</span><span class="ldesc">' + esc(desc) + '</span></span>' + acts + '</div>';
   }
+  function catalogueRows() {
+    var role = (document.body && document.body.getAttribute('data-role')) || '';
+    var meta = { employee: 'Employees', admin: 'Admins', hr: 'HR' };
+    var ids = role && meta[role] ? [role] : ['employee', 'admin', 'hr'];
+    return ids.map(function (id) {
+      return linkRow({ icon: 'file-text', tone: 'blue', label: meta[id] + ' catalogue (PDF)', desc: 'Every feature · tap to watch · share on WhatsApp', href: LINKS['catalogue_' + id], blank: true });
+    }).join('');
+  }
   function renderLinks(el, cat) {
     if (!el) return;
     var walk = walkItem(cat);
     el.innerHTML = '<div class="sectlabel"><span class="en">Links</span><span class="hi">डाउनलोड · वीडियो · मदद</span></div><div class="lgrid">' +
       walkRow(walk, !!cat) +
-      linkRow({ icon: 'file-text', tone: 'blue', label: 'App Catalogue (PDF)', desc: 'Every feature · tap to watch · share on WhatsApp', href: LINKS.catalogue, blank: true }) +
+      catalogueRows() +
       linkRow({ icon: 'android', tone: 'green', label: 'Download for Android', desc: 'APK · seedha download', href: LINKS.android, apk: true }) +
       linkRow({ icon: 'apple', tone: 'slate', label: 'Install on iPhone', desc: 'TestFlight · pehle TestFlight install karo', href: LINKS.ios }) +
       linkRow({ icon: 'globe', tone: 'cyan', label: 'Visitor check-in site', desc: 'Visitors ke liye alag website', href: LINKS.visitor, blank: true }) +
