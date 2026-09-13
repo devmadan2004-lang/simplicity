@@ -8,11 +8,27 @@
   "privacy": "https://devmadan2004-lang.github.io/simplicity-download/privacy.html"
  },
  "compilation": {
-  "title_hi": "पूरा परिचय — सारे फ़ीचर एक वीडियो में",
-  "title_en": "Complete walkthrough",
-  "video": "",
-  "poster": "",
-  "duration": 0
+  "title_en": "Complete walkthrough · Part 1 — Employees",
+  "title_hi": "पूरा परिचय — भाग 1: कर्मचारी",
+  "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.mp4",
+  "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.jpg",
+  "duration": 1024,
+  "parts": [
+   {
+    "title_en": "Complete walkthrough · Part 1 — Employees",
+    "title_hi": "पूरा परिचय — भाग 1: कर्मचारी",
+    "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.mp4",
+    "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.jpg",
+    "duration": 1024
+   },
+   {
+    "title_en": "Complete walkthrough · Part 2 — Admins & HR",
+    "title_hi": "पूरा परिचय — भाग 2: एडमिन और एच आर",
+    "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part2.mp4",
+    "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part2.jpg",
+    "duration": 751
+   }
+  ]
  },
  "roles": [
   {
@@ -31,9 +47,9 @@
        "title_en": "Install on Android",
        "desc": "APK download → install → login, 14 steps",
        "icon": "download",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 159,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/install-android.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/install-android.jpg"
       },
       {
        "slug": "install-iphone",
@@ -41,9 +57,9 @@
        "title_en": "Install on iPhone",
        "desc": "TestFlight se, 12 steps",
        "icon": "apple",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 124,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/install-iphone.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/install-iphone.jpg"
       },
       {
        "slug": "register",
@@ -51,9 +67,9 @@
        "title_en": "Register as a new employee",
        "desc": "Code nahi hai? App se register karo, HR approve karega",
        "icon": "user-plus",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 69,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/register.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/register.jpg"
       },
       {
        "slug": "login",
@@ -61,9 +77,9 @@
        "title_en": "Sign in with your code",
        "desc": "Na password, na email — bas employee code",
        "icon": "key",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 39,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/login.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/login.jpg"
       }
      ]
     },
@@ -77,9 +93,9 @@
        "title_en": "Office attendance",
        "desc": "GPS check, phir office ka QR scan — bina office aaye namumkin",
        "icon": "qr",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 63,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/attendance-office.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/attendance-office.jpg"
       },
       {
        "slug": "attendance-site",
@@ -87,9 +103,9 @@
        "title_en": "Site staff attendance",
        "desc": "Site pe pahuncho, ek tap — GPS se attendance",
        "icon": "map-pin",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 47,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/attendance-site.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/attendance-site.jpg"
       },
       {
        "slug": "dpr",
@@ -97,9 +113,9 @@
        "title_en": "Daily progress report",
        "desc": "Photo + remark, mausam apne aap — roz 6 baje se pehle",
        "icon": "camera",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 53,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/dpr.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/dpr.jpg"
       },
       {
        "slug": "od",
@@ -107,9 +123,9 @@
        "title_en": "Official duty (OD)",
        "desc": "Client visit ya site — request bhejo, approve hote hi attendance auto",
        "icon": "truck",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 56,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/od.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/od.jpg"
       },
       {
        "slug": "timeline",
@@ -117,9 +133,9 @@
        "title_en": "My timeline & reminders",
        "desc": "Reminder, diary, finance — sab apne waqt pe bajega",
        "icon": "clock",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 50,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/timeline.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/timeline.jpg"
       },
       {
        "slug": "chat",
@@ -127,9 +143,9 @@
        "title_en": "Team chat",
        "desc": "Group aur one-to-one, photo aur file ke saath",
        "icon": "message",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 26,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/chat.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/chat.jpg"
       },
       {
        "slug": "leaderboard",
@@ -137,9 +153,9 @@
        "title_en": "Leaderboard & points",
        "desc": "Samay pe attendance = 10 point, DPR podium",
        "icon": "trophy",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 49,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/leaderboard.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/leaderboard.jpg"
       }
      ]
     },
@@ -153,9 +169,9 @@
        "title_en": "Expense claim",
        "desc": "Receipt ki photo — claim seedha finance tak",
        "icon": "receipt",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 44,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/expense.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/expense.jpg"
       },
       {
        "slug": "leave-wfh-travel",
@@ -163,9 +179,9 @@
        "title_en": "Leave, WFH & travel requests",
        "desc": "Teeno requests profile se, do minute mein",
        "icon": "calendar",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 45,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/leave-wfh-travel.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/leave-wfh-travel.jpg"
       },
       {
        "slug": "profile",
@@ -173,9 +189,9 @@
        "title_en": "Profile, documents & settings",
        "desc": "Apni jaankari, documents, bhasha, sign out",
        "icon": "settings",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 62,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/profile.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/profile.jpg"
       },
       {
        "slug": "complaint",
@@ -183,9 +199,9 @@
        "title_en": "Complaint & suggestion box",
        "desc": "Shikayat ya sujhaav — seedha management tak",
        "icon": "bell",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 30,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complaint.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complaint.jpg"
       }
      ]
     },
@@ -199,9 +215,9 @@
        "title_en": "Quotations",
        "desc": "Quotation banao, track karo — admin tak apne aap",
        "icon": "file-text",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 40,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/quotations.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/quotations.jpg"
       },
       {
        "slug": "finance-receipts",
@@ -209,9 +225,9 @@
        "title_en": "Finance: approve receipts",
        "desc": "Team ke kharche yahin approve hote hain",
        "icon": "check",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 30,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/finance-receipts.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/finance-receipts.jpg"
       },
       {
        "slug": "supervisor",
@@ -219,9 +235,9 @@
        "title_en": "Site supervisor",
        "desc": "Apni site ki team aur saari reports",
        "icon": "briefcase",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 30,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/supervisor.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/supervisor.jpg"
       }
      ]
     }
@@ -243,9 +259,9 @@
        "title_en": "Live map",
        "desc": "Poori team map pe, apne aap taaza — fetch now bhi",
        "icon": "map-pin",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 56,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/live-map.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/live-map.jpg"
       },
       {
        "slug": "pulse",
@@ -253,9 +269,9 @@
        "title_en": "Pulse — today at a glance",
        "desc": "Aaj kaun aaya, kaun nahi, kaun late — Excel export",
        "icon": "home",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 31,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/pulse.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/pulse.jpg"
       },
       {
        "slug": "dpr-review",
@@ -263,9 +279,9 @@
        "title_en": "Review daily reports",
        "desc": "Sabki reports ek jagah — photo, remark, mausam",
        "icon": "file-text",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 36,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/dpr-review.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/dpr-review.jpg"
       }
      ]
     },
@@ -279,19 +295,19 @@
        "title_en": "OD approvals & live trail",
        "desc": "Ek tap approve, phir poora raasta live",
        "icon": "truck",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 44,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/od-approvals.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/od-approvals.jpg"
       },
       {
        "slug": "approvals",
-       "title_hi": "बाकी अप्रूवल",
-       "title_en": "Other approvals",
-       "desc": "Leave, WFH, travel — notification pe ek tap",
+       "title_hi": "अप्रूवल की लिस्ट",
+       "title_en": "Approvals queue",
+       "desc": "Every pending request in one list",
        "icon": "check",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 37,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/approvals.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/approvals.jpg"
       }
      ]
     },
@@ -305,9 +321,9 @@
        "title_en": "Admin panel",
        "desc": "Staff, sites, records, QR — saare control ek jagah",
        "icon": "shield",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 74,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/admin-panel.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/admin-panel.jpg"
       },
       {
        "slug": "quotes",
@@ -315,9 +331,9 @@
        "title_en": "Quotations",
        "desc": "Team ke saare quotations, status ke saath",
        "icon": "file-text",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 22,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/quotes.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/quotes.jpg"
       },
       {
        "slug": "complaint-inbox",
@@ -325,9 +341,9 @@
        "title_en": "Complaint inbox",
        "desc": "Poori team ki shikayat aur sujhaav — naam ke saath",
        "icon": "bell",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 27,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complaint-inbox.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complaint-inbox.jpg"
       },
       {
        "slug": "birthdays",
@@ -335,9 +351,9 @@
        "title_en": "Birthdays",
        "desc": "Aaj aur agle 45 din — subah 9 baje reminder",
        "icon": "star",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 23,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/birthdays.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/birthdays.jpg"
       },
       {
        "slug": "board-chat-admin",
@@ -345,9 +361,9 @@
        "title_en": "Leaderboard & chat",
        "desc": "Podium, points aur team chat — admin ke liye bhi",
        "icon": "trophy",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 29,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/board-chat-admin.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/board-chat-admin.jpg"
       },
       {
        "slug": "visitors",
@@ -355,9 +371,9 @@
        "title_en": "Visitor check-in",
        "desc": "Front desk QR → website — visitor ko app nahi chahiye",
        "icon": "globe",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 35,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/visitors.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/visitors.jpg"
       }
      ]
     }
@@ -379,9 +395,9 @@
        "title_en": "Onboarding a new employee",
        "desc": "Register → HR approve → role → code — shuru se aakhir tak",
        "icon": "user-plus",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 111,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/onboarding.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/onboarding.jpg"
       },
       {
        "slug": "people",
@@ -389,9 +405,9 @@
        "title_en": "People directory",
        "desc": "Poora staff, role aur site ke saath — nayi applications bhi yahin",
        "icon": "users",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 30,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/people.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/people.jpg"
       }
      ]
     },
@@ -405,9 +421,9 @@
        "title_en": "HR home & quick actions",
        "desc": "Pulse, records editor, people, attendance, QR — ek screen",
        "icon": "home",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 53,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/hr-home.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/hr-home.jpg"
       },
       {
        "slug": "attendance-records",
@@ -415,9 +431,9 @@
        "title_en": "Attendance records",
        "desc": "Kisi bhi din ka record, sudhaar, Excel — payroll ke liye",
        "icon": "calendar",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 37,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/attendance-records.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/attendance-records.jpg"
       },
       {
        "slug": "hr-pulse-dpr",
@@ -425,9 +441,9 @@
        "title_en": "Pulse & reports for HR",
        "desc": "Aaj ki team aur saari sites ki reports",
        "icon": "file-text",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 28,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/hr-pulse-dpr.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/hr-pulse-dpr.jpg"
       },
       {
        "slug": "hr-visitors",
@@ -435,9 +451,9 @@
        "title_en": "Visitor check-in",
        "desc": "Front desk QR → website — reception ko list",
        "icon": "globe",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 38,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/hr-visitors.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/hr-visitors.jpg"
       },
       {
        "slug": "hr-more",
@@ -445,9 +461,9 @@
        "title_en": "Timeline, chat & board",
        "desc": "Baaki sab — HR ke liye bhi wahi",
        "icon": "list",
-       "duration": 0,
-       "video": "",
-       "poster": ""
+       "duration": 35,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/hr-more.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/hr-more.jpg"
       }
      ]
     }

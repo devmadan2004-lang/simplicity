@@ -17,7 +17,8 @@
     download_page: 'https://devmadan2004-lang.github.io/simplicity-download/',
     visitor: 'https://devmadan2004-lang.github.io/simplicity-visitor/',
     help: 'https://devmadan2004-lang.github.io/simplicity/help/',
-    privacy: 'https://devmadan2004-lang.github.io/simplicity-download/privacy.html'
+    privacy: 'https://devmadan2004-lang.github.io/simplicity-download/privacy.html',
+    catalogue: 'https://devmadan2004-lang.github.io/simplicity/Simplicity-App-Catalogue.pdf'
   };
   var SUPPORT_URL = 'https://ejiugojnbdzsshywekmq.supabase.co/functions/v1/support-ticket';
 
@@ -151,7 +152,7 @@
         return r.json();
       }).then(function (cat) {
         if (cat && cat.links) {
-          ['android', 'ios', 'download_page', 'visitor', 'help', 'privacy'].forEach(function (k) {
+          ['android', 'ios', 'download_page', 'visitor', 'help', 'privacy', 'catalogue'].forEach(function (k) {
             var v = safeUrl(cat.links[k]); if (v) LINKS[k] = v;
           });
           mountAllDownloads();
@@ -331,6 +332,7 @@
     var walk = walkItem(cat);
     el.innerHTML = '<div class="sectlabel"><span class="en">Links</span><span class="hi">डाउनलोड · वीडियो · मदद</span></div><div class="lgrid">' +
       walkRow(walk, !!cat) +
+      linkRow({ icon: 'file-text', tone: 'blue', label: 'App Catalogue (PDF)', desc: 'Every feature · tap to watch · share on WhatsApp', href: LINKS.catalogue, blank: true }) +
       linkRow({ icon: 'android', tone: 'green', label: 'Download for Android', desc: 'APK · seedha download', href: LINKS.android, apk: true }) +
       linkRow({ icon: 'apple', tone: 'slate', label: 'Install on iPhone', desc: 'TestFlight · pehle TestFlight install karo', href: LINKS.ios }) +
       linkRow({ icon: 'globe', tone: 'cyan', label: 'Visitor check-in site', desc: 'Visitors ke liye alag website', href: LINKS.visitor, blank: true }) +
