@@ -18,6 +18,7 @@
     visitor: 'https://devmadan2004-lang.github.io/simplicity-visitor/',
     help: 'https://devmadan2004-lang.github.io/simplicity/help/',
     privacy: 'https://devmadan2004-lang.github.io/simplicity-download/privacy.html',
+    catalogue_new: 'https://devmadan2004-lang.github.io/simplicity/Simplicity-App-New-Employee.pdf',
     catalogue_employee: 'https://devmadan2004-lang.github.io/simplicity/Simplicity-App-Employees.pdf',
     catalogue_admin: 'https://devmadan2004-lang.github.io/simplicity/Simplicity-App-Admins.pdf',
     catalogue_hr: 'https://devmadan2004-lang.github.io/simplicity/Simplicity-App-HR.pdf'
@@ -331,10 +332,10 @@
   }
   function catalogueRows() {
     var role = (document.body && document.body.getAttribute('data-role')) || '';
-    var meta = { employee: 'Employees', admin: 'Admins', hr: 'HR' };
-    var ids = role && meta[role] ? [role] : ['employee', 'admin', 'hr'];
+    var meta = { new: 'New Employee', employee: 'Employees', admin: 'Admins', hr: 'HR' };
+    var ids = role && meta[role] ? (role === 'employee' ? ['new', 'employee'] : [role]) : ['new', 'employee', 'admin', 'hr'];
     return ids.map(function (id) {
-      return linkRow({ icon: 'file-text', tone: 'blue', label: meta[id] + ' catalogue (PDF)', desc: 'Every feature · tap to watch · share on WhatsApp', href: LINKS['catalogue_' + id], blank: true });
+      return linkRow({ icon: 'file-text', tone: 'blue', label: meta[id] + (id === 'new' ? ' guide (PDF)' : ' catalogue (PDF)'), desc: id === 'new' ? 'First day: install, register, get your code' : 'Every feature · tap to watch · share on WhatsApp', href: LINKS['catalogue_' + id], blank: true });
     }).join('');
   }
   function renderLinks(el, cat) {
