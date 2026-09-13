@@ -1,5 +1,5 @@
-/* Simplicity — feature guide. Shared script for every page.
-   Pages tag <body data-page="home|role|help|404" [data-role="employee"]>.
+/* Simplicity — app catalogue. Shared script for every page.
+   Pages tag <body data-page="catalogue|help|404" [data-role="employee"]>.
    All content comes from catalog.json (fetched at runtime, never cached). */
 (function () {
   'use strict';
@@ -15,6 +15,7 @@
     ios: 'https://testflight.apple.com/join/XgGwYsH2',
     testflight: 'https://apps.apple.com/app/testflight/id899247664',
     download_page: 'https://devmadan2004-lang.github.io/simplicity-download/',
+    visitor: 'https://devmadan2004-lang.github.io/simplicity-visitor/',
     help: 'https://devmadan2004-lang.github.io/simplicity/help/',
     privacy: 'https://devmadan2004-lang.github.io/simplicity-download/privacy.html'
   };
@@ -55,13 +56,14 @@
     sec = Math.round(Number(sec) || 0);
     if (sec < 60) return sec + ' sec';
     var m = Math.round(sec / 60);
-    return '~' + m + ' min';
+    return m + ' min';
   }
   function safeUrl(u) {
     u = String(u || '').trim();
     return /^https?:\/\//i.test(u) ? u : '';
   }
   function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  function plural(n, w) { return n + ' ' + w + (n === 1 ? '' : 's'); }
   function $(id) { return document.getElementById(id); }
   function qsa(sel, el) { return Array.prototype.slice.call((el || document).querySelectorAll(sel)); }
 
@@ -98,43 +100,45 @@
     play: { fill: true, d: '<path d="M6 4.5v15a1 1 0 0 0 1.53.85l12-7.5a1 1 0 0 0 0-1.7l-12-7.5A1 1 0 0 0 6 4.5z"/>' },
     'arrow-right': '<path d="M5 12h14M13 6l6 6-6 6"/>',
     'chevron-right': '<path d="M9 6l6 6-6 6"/>',
-    upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>',
+    external: '<path d="M7 17L17 7M8 7h9v9"/>',
     film: '<rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 17h5M17 7h5"/>',
     refresh: '<path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>',
-    'help-circle': '<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/>',
     monitor: '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>'
   };
   var TONE = { 'map-pin': 'cyan', globe: 'cyan', truck: 'cyan', camera: 'violet', image: 'violet', 'file-text': 'violet', qr: 'green', check: 'green', calendar: 'green', clock: 'green', trophy: 'amber', star: 'amber', receipt: 'amber', message: 'rose', bell: 'rose', help: 'rose', apple: 'slate' };
+  var ROLE_ICON = { employee: 'briefcase', admin: 'shield', hr: 'users' };
+  var ROLE_TONE = { employee: '', admin: 'violet', hr: 'cyan' };
   function icon(name) {
     var d = ICONS[name] || ICONS.star;
     if (d && d.fill) return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' + d.d + '</svg>';
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + '</svg>';
   }
-  function tile(name, extra) {
-    return '<div class="tile ' + (TONE[name] || '') + (extra ? ' ' + extra : '') + '">' + icon(name) + '</div>';
+  function tile(name, tone) {
+    return '<div class="tile ' + (tone != null ? tone : (TONE[name] || '')) + '">' + icon(name) + '</div>';
   }
   window.SimplicityIcons = { icon: icon, tile: tile };
 
-  /* ---------- download buttons (order follows the device) ---------- */
-  function downloadHTML(variant) {
+  /* ---------- download buttons (modal strip; order follows the device) ---------- */
+  function downloadHTML() {
     var a = '<div class="dl-item" data-plat="android"><a class="btn" href="' + esc(LINKS.android) + '" data-apk>' + icon('android') + '<span>Download for Android</span></a></div>';
     var i = '<div class="dl-item" data-plat="ios"><a class="btn" href="' + esc(LINKS.ios) + '" data-ios>' + icon('apple') + '<span>Install on iPhone</span></a>' +
       '<div class="dl-note">Pehle TestFlight install karo (App Store, free), phir ye tap karo. <a href="' + esc(LINKS.testflight) + '" target="_blank" rel="noopener">Get TestFlight &#8599;</a></div></div>';
     var order = (!isAndroid && isIOS) ? [i, a] : [a, i];
-    return '<div class="dl' + (variant ? ' ' + variant : '') + '">' + order.join('') + '</div>';
+    return '<div class="dl">' + order.join('') + '</div>';
+  }
+  function bindApk(el) {
+    qsa('a[data-apk]', el).forEach(function (b) {
+      b.addEventListener('click', function (ev) {
+        ev.preventDefault(); ev.stopPropagation();
+        window.__resolveApk(function (u) { location.href = u; });
+      });
+    });
   }
   function mountDownloads(el) {
     if (!el) return;
-    el.innerHTML = downloadHTML(el.getAttribute('data-dl') || '');
-    var btns = qsa('.btn', el);
-    btns.forEach(function (b, n) { b.classList.add(n === 0 ? 'btn-primary' : 'btn-ghost'); });
-    qsa('a[data-apk]', el).forEach(function (b) {
-      b.addEventListener('click', function (ev) {
-        ev.preventDefault();
-        b.classList.add('busy');
-        window.__resolveApk(function (u) { b.classList.remove('busy'); location.href = u; });
-      });
-    });
+    el.innerHTML = downloadHTML();
+    qsa('.btn', el).forEach(function (b, n) { b.classList.add(n === 0 ? 'btn-primary' : 'btn-ghost'); });
+    bindApk(el);
   }
   function mountAllDownloads() { qsa('[data-dl]').forEach(mountDownloads); }
 
@@ -147,7 +151,7 @@
         return r.json();
       }).then(function (cat) {
         if (cat && cat.links) {
-          ['android', 'ios', 'download_page', 'help', 'privacy'].forEach(function (k) {
+          ['android', 'ios', 'download_page', 'visitor', 'help', 'privacy'].forEach(function (k) {
             var v = safeUrl(cat.links[k]); if (v) LINKS[k] = v;
           });
           mountAllDownloads();
@@ -157,14 +161,12 @@
     }
     return catalogPromise;
   }
-  function roleFeatures(role) {
-    var list = [];
-    (role && role.sections || []).forEach(function (s) {
-      (s.features || []).forEach(function (f) { list.push(f); });
-    });
-    return list;
-  }
   function withVideo(f) { return !!safeUrl(f && f.video); }
+  function walkItem(cat) {
+    var c = cat && cat.compilation || {};
+    return { slug: 'walkthrough', title_hi: c.title_hi || 'पूरा परिचय — सारे फ़ीचर एक वीडियो में', title_en: c.title_en || 'Complete walkthrough',
+      video: safeUrl(c.video), poster: safeUrl(c.poster), duration: Number(c.duration) || 0, desc: 'Sab features ek hi video mein — install se approvals tak.', _eyebrow: 'Complete walkthrough' };
+  }
 
   /* ---------- video modal ---------- */
   var M = { el: null, list: [], idx: -1, open: false, lastFocus: null, pushed: false };
@@ -175,13 +177,14 @@
     ov.className = 'ov'; ov.id = 'player'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true'); ov.setAttribute('aria-label', 'Video');
     ov.innerHTML =
       '<div class="sheet">' +
-        '<div class="sheet-top"><div class="sheet-t"><div class="sheet-hi" id="mHi"></div><div class="sheet-en" id="mEn"></div></div><button class="xb" type="button" data-close aria-label="Close">&#10005;</button></div>' +
+        '<div class="sheet-top"><div class="sheet-t"><div class="sheet-title" id="mTitle"></div><div class="sheet-sub" id="mSub"></div></div><button class="xb" type="button" data-close aria-label="Close">&#10005;</button></div>' +
         '<div class="sheet-body">' +
           '<div class="player-col"><div class="phone" id="mPhone"></div></div>' +
           '<div class="info-col">' +
-            '<div class="info-head"><div class="eyebrow" id="mSec"></div><div class="info-hi" id="mHi2"></div><div class="info-en" id="mEn2"></div></div>' +
+            '<div class="info-head"><div class="eyebrow" id="mSec"></div><div class="info-title" id="mTitle2"></div><div class="info-sub" id="mSub2"></div></div>' +
             '<p class="sheet-desc" id="mDesc"></p>' +
-            '<div class="strip"><div class="strip-l">Download the app</div><div data-dl="sm"></div></div>' +
+            '<div class="mrow"><span class="chip" id="mDur"></span><a class="act link" id="mLink" target="_blank" rel="noopener">' + icon('external') + '<span>Video link</span></a></div>' +
+            '<div class="strip"><div class="strip-l">Download the app</div><div data-dl></div></div>' +
             '<button class="next" type="button" id="mNext"></button>' +
             '<div class="next-sub" id="mNextSub"></div>' +
           '</div>' +
@@ -232,7 +235,7 @@
     v.addEventListener('error', function () {
       if (ph.querySelector('.verr')) return;
       var e = document.createElement('div'); e.className = 'verr';
-      e.innerHTML = '<div>Video load nahi hua &mdash; network check karke dobara try karo.</div><button type="button">' + 'Retry</button>';
+      e.innerHTML = '<div>Video load nahi hua &mdash; network check karke dobara try karo.</div><button type="button">Retry</button>';
       e.querySelector('button').addEventListener('click', function () { mountVideo(it); });
       ph.appendChild(e);
     });
@@ -240,17 +243,21 @@
     var p = v.play(); if (p && p.catch) p.catch(function () { /* autoplay blocked: user taps play */ });
   }
   function fillModal(it) {
-    var hi = it.title_hi || it.title_en || '', en = it.title_en || '';
-    $('mHi').textContent = hi; $('mEn').textContent = en;
-    $('mHi2').textContent = hi; $('mEn2').textContent = en;
-    $('mSec').textContent = it._section ? ((it._section.title_hi || '') + (it._section.title_en ? ' · ' + it._section.title_en : '')) : (it._eyebrow || '');
+    var en = it.title_en || it.title_hi || '', hi = it.title_hi || '';
+    $('mTitle').textContent = en; $('mSub').textContent = hi;
+    $('mTitle2').textContent = en; $('mSub2').textContent = hi;
+    var sec = it._section ? ((it._role ? it._role.title_en + ' · ' : '') + (it._section.title_en || '')) : (it._eyebrow || '');
+    $('mSec').textContent = sec;
     $('mDesc').textContent = it.desc || '';
     $('mDesc').style.display = it.desc ? '' : 'none';
+    var d = Number(it.duration) || 0;
+    $('mDur').innerHTML = icon('clock') + fmtDur(d); $('mDur').style.display = d ? '' : 'none';
+    $('mLink').href = safeUrl(it.video);
     var n = nextPlayable(M.idx), nb = $('mNext'), ns = $('mNextSub');
     if (n >= 0) {
       nb.className = 'next';
       nb.innerHTML = '<span>Next feature</span>' + icon('arrow-right');
-      ns.textContent = (M.list[n].title_hi || '') + (M.list[n].title_en ? ' · ' + M.list[n].title_en : '');
+      ns.textContent = (M.list[n].title_en || '') + (M.list[n].title_hi ? ' · ' + M.list[n].title_hi : '');
     } else {
       nb.className = 'next done';
       nb.innerHTML = icon('check') + '<span>Done</span>';
@@ -301,122 +308,153 @@
     var idx = indexOfSlug(decodeURIComponent(location.hash.replace(/^#/, '')));
     if (idx >= 0 && withVideo(M.list[idx])) openItem(idx, { viaHash: true });
   }
+  function openSlug(slug) { var i = indexOfSlug(slug); if (i >= 0) openItem(i); }
 
-  /* ---------- feature cards ---------- */
-  function featureCard(f, n, idx) {
+  /* ---------- links block ---------- */
+  function linkRow(o) {
+    var attrs = o.blank ? ' target="_blank" rel="noopener"' : '';
+    return '<a class="lrow" href="' + esc(o.href) + '"' + attrs + (o.apk ? ' data-apk' : '') + '>' + tile(o.icon, o.tone) +
+      '<span class="lbody"><span class="llabel">' + esc(o.label) + '</span><span class="ldesc">' + esc(o.desc) + '</span></span>' +
+      '<span class="lgo">' + icon('external') + '</span></a>';
+  }
+  function walkRow(walk, loaded) {
+    var has = walk && withVideo(walk);
+    var desc = has ? ((walk.duration ? fmtTotal(walk.duration) + ' · ' : '') + walk.title_hi) : (loaded ? 'Coming soon · जल्द आ रहा है' : 'Sab features ek video mein');
+    var acts = has
+      ? '<span class="lacts"><button class="act play" type="button" data-watch="walkthrough">' + icon('play') + '<span>Watch</span></button><a class="act link only" href="' + esc(walk.video) + '" target="_blank" rel="noopener" aria-label="Video link">' + icon('external') + '</a></span>'
+      : '<span class="lacts"><span class="chip soon">' + icon('clock') + 'Coming soon</span></span>';
+    return '<div class="lrow walk" id="walk">' + tile('film', 'cyan') +
+      '<span class="lbody"><span class="llabel">' + esc(walk ? walk.title_en : 'Complete walkthrough') + '</span><span class="ldesc">' + esc(desc) + '</span></span>' + acts + '</div>';
+  }
+  function renderLinks(el, cat) {
+    if (!el) return;
+    var walk = walkItem(cat);
+    el.innerHTML = '<div class="sectlabel"><span class="en">Links</span><span class="hi">डाउनलोड · वीडियो · मदद</span></div><div class="lgrid">' +
+      walkRow(walk, !!cat) +
+      linkRow({ icon: 'android', tone: 'green', label: 'Download for Android', desc: 'APK · seedha download', href: LINKS.android, apk: true }) +
+      linkRow({ icon: 'apple', tone: 'slate', label: 'Install on iPhone', desc: 'TestFlight · pehle TestFlight install karo', href: LINKS.ios }) +
+      linkRow({ icon: 'globe', tone: 'cyan', label: 'Visitor check-in site', desc: 'Visitors ke liye alag website', href: LINKS.visitor, blank: true }) +
+      linkRow({ icon: 'message', tone: 'rose', label: 'Report a problem', desc: 'Screenshot bhejo — fix hoke aayega', href: LINKS.help }) +
+      linkRow({ icon: 'shield', tone: 'blue', label: 'Privacy policy', desc: 'Aapka data kaise use hota hai', href: LINKS.privacy, blank: true }) +
+      '</div>';
+    bindApk(el);
+    var w = el.querySelector('[data-watch]');
+    if (w) w.addEventListener('click', function () { openSlug('walkthrough'); });
+  }
+
+  /* ---------- feature rows ---------- */
+  function media(f) {
+    var p = safeUrl(f.poster);
+    if (p) return '<img class="fposter" src="' + esc(p) + '" alt="" loading="lazy" decoding="async">';
+    return '<div class="ftile ' + (TONE[f.icon] || '') + '">' + icon(f.icon) + '</div>';
+  }
+  function featureRow(f, n, idx) {
     var has = withVideo(f);
     var foot = has
-      ? '<span class="chip">' + icon('clock') + fmtDur(f.duration) + '</span><span class="play">' + icon('play') + '<span>देखें</span></span>'
-      : '<span class="chip soon">' + icon('clock') + 'जल्द आ रहा है</span>';
-    return '<article class="feat ' + (has ? 'has-video' : 'soon-card') + '" data-idx="' + idx + '" id="f-' + esc(f.slug) + '"' +
-      (has ? ' role="button" tabindex="0" aria-label="' + esc((f.title_hi || '') + ' — ' + (f.title_en || '')) + '"' : '') + '>' +
-      '<div class="num">' + pad2(n) + '</div>' +
-      '<div class="feat-top">' + tile(f.icon) + '<div class="feat-t"><div class="feat-hi">' + esc(f.title_hi || f.title_en) + '</div><div class="feat-en">' + esc(f.title_en) + '</div></div></div>' +
-      (f.desc ? '<p class="feat-desc">' + esc(f.desc) + '</p>' : '') +
-      '<div class="feat-foot">' + foot + '</div>' +
+      ? '<span class="chip">' + icon('clock') + fmtDur(f.duration) + '</span>' +
+        '<span class="facts"><button class="act play" type="button">' + icon('play') + '<span>Watch</span></button>' +
+        '<a class="act link" href="' + esc(f.video) + '" target="_blank" rel="noopener">' + icon('external') + '<span>Link</span></a></span>'
+      : '<span class="chip soon">' + icon('clock') + 'Coming soon <small>· जल्द आ रहा है</small></span>';
+    return '<article class="frow ' + (has ? 'has-video' : 'soon-card') + '" data-idx="' + idx + '" id="f-' + esc(f.slug) + '"' +
+      (has ? ' role="button" tabindex="0" aria-label="' + esc((f.title_en || '') + ' — ' + (f.title_hi || '')) + '"' : '') + '>' +
+      '<div class="fmedia">' + media(f) + '</div>' +
+      '<div class="fbody">' +
+        '<div class="ftop"><span class="fnum">' + pad2(n) + '</span><span class="ftitle">' + esc(f.title_en || f.title_hi) + '</span></div>' +
+        (f.title_hi ? '<div class="fhi">' + esc(f.title_hi) + '</div>' : '') +
+        (f.desc ? '<p class="fdesc">' + esc(f.desc) + '</p>' : '') +
+        '<div class="ffoot">' + foot + '</div>' +
+      '</div>' +
     '</article>';
   }
-  function bindCards(container) {
-    qsa('.feat.has-video', container).forEach(function (card) {
-      var idx = Number(card.getAttribute('data-idx'));
-      card.addEventListener('click', function () { openItem(idx); });
-      card.addEventListener('keydown', function (ev) {
-        if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openItem(idx); }
+  function bindRows(container) {
+    qsa('.frow.has-video', container).forEach(function (row) {
+      var idx = Number(row.getAttribute('data-idx'));
+      row.addEventListener('click', function (ev) {
+        if (ev.target.closest('a')) return; /* the ↗ Link anchor navigates on its own */
+        openItem(idx);
+      });
+      row.addEventListener('keydown', function (ev) {
+        if ((ev.key === 'Enter' || ev.key === ' ') && ev.target === row) { ev.preventDefault(); openItem(idx); }
+      });
+    });
+    qsa('img.fposter', container).forEach(function (img) {
+      img.addEventListener('error', function () {
+        var row = img.closest('.frow'), f = row && M.list[Number(row.getAttribute('data-idx'))];
+        img.outerHTML = '<div class="ftile ' + (f ? (TONE[f.icon] || '') : '') + '">' + icon(f ? f.icon : 'star') + '</div>';
       });
     });
   }
-
-  /* ---------- role page ---------- */
-  function initRole() {
-    var roleId = document.body.getAttribute('data-role');
-    var host = $('sections'), heroEl = $('rhero');
-    function fail(msg) {
-      host.innerHTML = '<div class="errbox"><span>' + esc(msg) + '</span><button type="button">' + 'Retry</button></div>';
-      host.querySelector('button').addEventListener('click', function () { host.innerHTML = skeleton(4); run(true); });
-    }
-    function run(force) {
-      loadCatalog(force).then(function (cat) {
-        var role = (cat.roles || []).filter(function (r) { return r.id === roleId; })[0];
-        if (!role) { fail('Ye page catalog mein nahi mila.'); return; }
-        var list = [], n = 0;
-        (role.sections || []).forEach(function (s) {
-          (s.features || []).forEach(function (f) { f._section = s; list.push(f); });
-        });
-        M.list = list;
-        /* hero */
-        var vids = list.filter(withVideo), total = vids.reduce(function (a, f) { return a + (Number(f.duration) || 0); }, 0);
-        if (heroEl) {
-          heroEl.querySelector('h1').textContent = role.title_hi || role.title_en || '';
-          heroEl.querySelector('.ren').textContent = role.title_en || '';
-          heroEl.querySelector('.sub').textContent = role.tagline || '';
-          var st = heroEl.querySelector('.rstats');
-          if (st) st.innerHTML =
-            '<span class="stat">' + icon('list') + list.length + ' feature' + (list.length === 1 ? '' : 's') + '</span>' +
-            '<span class="stat">' + icon('film') + vids.length + ' video' + (vids.length === 1 ? '' : 's') + '</span>' +
-            (total ? '<span class="stat">' + icon('clock') + fmtTotal(total) + ' total</span>' : '');
-        }
-        document.title = (role.title_en || 'Guide') + ' — Simplicity';
-        /* sections */
-        var html = '';
-        (role.sections || []).forEach(function (s) {
-          if (!(s.features || []).length) return;
-          html += '<div class="sectlabel"><span class="hi">' + esc(s.title_hi || '') + '</span>' + (s.title_en ? '<span class="en">' + esc(s.title_en) + '</span>' : '') + '</div>';
-          html += '<div class="grid">' + s.features.map(function (f) { n++; return featureCard(f, n, list.indexOf(f)); }).join('') + '</div>';
-        });
-        if (!html) html = '<div class="card" style="padding:26px;text-align:center;color:#9fb0d6;font-size:14px">इस role के videos जल्द आ रहे हैं — abhi ke liye app download karke explore karo.</div>';
-        host.innerHTML = html;
-        bindCards(host);
-        openDeepLink();
-      }).catch(function (e) {
-        fail('Feature list load nahi hui (' + (e && e.message ? e.message : 'network') + '). Internet check karke retry karo.');
-      });
-    }
-    host.innerHTML = skeleton(4);
-    run(false);
+  function sectLabel(s) {
+    return '<div class="sectlabel"><span class="en">' + esc(s.title_en || '') + '</span>' + (s.title_hi ? '<span class="hi">' + esc(s.title_hi) + '</span>' : '') + '</div>';
   }
-  function skeleton(n) {
-    var s = '<div class="grid">';
-    for (var i = 0; i < n; i++) s += '<div class="skel"></div>';
+  function roleSection(r, feats, body, linkToPage) {
+    var vids = feats.filter(withVideo).length;
+    var count = '<span class="rcount">' + icon('film') + plural(feats.length, 'feature') + (vids ? ' · ' + plural(vids, 'video') : '') + (linkToPage ? ' ' + icon('external') : '') + '</span>';
+    var head = '<' + (linkToPage ? 'a href="' + esc(ROOT + r.id + '/') + '"' : 'div') + ' class="rolehead">' + tile(ROLE_ICON[r.id] || 'star', ROLE_TONE[r.id] || '') +
+      '<div class="rhead-t"><h2>' + esc(r.title_en || '') + (r.title_hi ? '<small>' + esc(r.title_hi) + '</small>' : '') + '</h2>' +
+      (r.tagline ? '<div class="rtag">' + esc(r.tagline) + '</div>' : '') + '</div>' + count + '</' + (linkToPage ? 'a' : 'div') + '>';
+    return '<section class="rolesec" id="role-' + esc(r.id) + '">' + head + body + '</section>';
+  }
+  function skeleton(n, cls) {
+    var s = '<div class="rows">';
+    for (var i = 0; i < n; i++) s += '<div class="skel' + (cls ? ' ' + cls : '') + '"></div>';
     return s + '</div>';
   }
 
-  /* ---------- landing ---------- */
-  function initHome() {
-    var rolesEl = $('roles'), walkEl = $('walk');
-    var ROLE_ICON = { employee: 'briefcase', admin: 'shield', hr: 'users' };
+  /* ---------- catalogue page (landing = all roles, role page = one role) ---------- */
+  function initCatalogue() {
+    var roleFilter = document.body.getAttribute('data-role') || '';
+    var linksEl = $('links'), host = $('sections'), intro = $('intro');
+    renderLinks(linksEl, null);
+    host.innerHTML = skeleton(5);
     function fail(msg) {
-      rolesEl.innerHTML = '<div class="errbox"><span>' + esc(msg) + '</span><button type="button">Retry</button></div>';
-      rolesEl.querySelector('button').addEventListener('click', function () { rolesEl.innerHTML = skeleton(3); run(true); });
+      host.innerHTML = '<div class="errbox"><span>' + esc(msg) + '</span><button type="button">Retry</button></div>';
+      host.querySelector('button').addEventListener('click', function () { host.innerHTML = skeleton(5); run(true); });
     }
     function run(force) {
       loadCatalog(force).then(function (cat) {
-        rolesEl.innerHTML = (cat.roles || []).map(function (r) {
-          var feats = roleFeatures(r), vids = feats.filter(withVideo).length;
-          return '<a class="card role" href="' + esc(ROOT + r.id + '/') + '">' + tile(ROLE_ICON[r.id] || 'star') +
-            '<div class="role-t"><div class="role-hi">' + esc(r.title_hi || r.title_en) + '</div><div class="role-en">' + esc(r.title_en) + '</div>' +
-            '<div class="role-tag">' + esc(r.tagline || '') + '</div>' +
-            '<span class="role-n">' + icon('film') + feats.length + ' feature' + (feats.length === 1 ? '' : 's') + (vids ? ' · ' + vids + ' video' + (vids === 1 ? '' : 's') : '') + '</span></div>' +
-            '<span class="role-arrow">' + icon('chevron-right') + '</span></a>';
-        }).join('');
-        /* complete walkthrough */
-        var c = cat.compilation || {};
-        var item = { slug: 'walkthrough', title_hi: c.title_hi || 'पूरा परिचय', title_en: c.title_en || 'Complete walkthrough', video: c.video, poster: c.poster, duration: c.duration, desc: '', _eyebrow: 'Sabhi features · ek video' };
-        M.list = [item];
-        walkEl.querySelector('h2').textContent = item.title_hi;
-        var meta = walkEl.querySelector('.walk-meta');
-        if (withVideo(item)) {
-          meta.innerHTML = (item.duration ? '<span class="chip">' + icon('clock') + fmtDur(item.duration) + '</span>' : '') +
-            '<button class="playbig" type="button">' + icon('play') + '<span>पूरा video देखें</span></button>';
-          meta.querySelector('.playbig').addEventListener('click', function () { openItem(0); });
-        } else {
-          meta.innerHTML = '<span class="chip soon">' + icon('clock') + 'जल्द आ रहा है</span>';
+        var roles = (cat.roles || []).filter(function (r) { return !roleFilter || r.id === roleFilter; });
+        if (roleFilter && !roles.length) { fail('Ye role catalog mein nahi mila.'); return; }
+        var list = [], walk = walkItem(cat), html = '', all = [];
+        list.push(walk);
+        roles.forEach(function (r) {
+          var feats = [], n = 0, body = '';
+          (r.sections || []).forEach(function (s) {
+            if (!(s.features || []).length) return;
+            body += sectLabel(s) + '<div class="rows">' + s.features.map(function (f) {
+              f._section = s; f._role = r; list.push(f); feats.push(f); n++;
+              return featureRow(f, n, list.length - 1);
+            }).join('') + '</div>';
+          });
+          if (!body) body = '<div class="errbox" style="color:#aebbdd;background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)">Is role ke videos jald aa rahe hain.</div>';
+          all = all.concat(feats);
+          html += roleFilter ? '<section class="rolesec" id="role-' + esc(r.id) + '">' + body + '</section>' : roleSection(r, feats, body, true);
+        });
+        M.list = list;
+        host.innerHTML = html;
+        bindRows(host);
+        renderLinks(linksEl, cat);
+        /* intro */
+        var vids = all.filter(withVideo), total = vids.reduce(function (a, f) { return a + (Number(f.duration) || 0); }, 0);
+        if (intro) {
+          if (roleFilter) {
+            var r = roles[0];
+            intro.querySelector('h1').textContent = r.title_en || '';
+            var hi = intro.querySelector('.hi'); if (hi) hi.textContent = r.title_hi || '';
+            intro.querySelector('.sub').textContent = r.tagline || '';
+            document.title = (r.title_en || 'Guide') + ' — Simplicity app catalogue';
+          }
+          var st = intro.querySelector('.rstats');
+          if (st) st.innerHTML = '<span class="stat">' + icon('list') + plural(all.length, 'feature') + '</span>' +
+            '<span class="stat">' + icon('film') + plural(vids.length, 'video') + '</span>' +
+            (total ? '<span class="stat">' + icon('clock') + fmtTotal(total) + ' total</span>' : '') +
+            (cat.updated ? '<span class="stat">Updated ' + esc(cat.updated) + '</span>' : '');
         }
         openDeepLink();
       }).catch(function (e) {
-        fail('Catalog load nahi hua (' + (e && e.message ? e.message : 'network') + '). Internet check karke retry karo.');
+        fail('Catalogue load nahi hua (' + (e && e.message ? e.message : 'network') + '). Internet check karke retry karo.');
       });
     }
-    rolesEl.innerHTML = skeleton(3);
     run(false);
   }
 
@@ -466,7 +504,6 @@
       drop.style.display = shots.length >= MAX ? 'none' : '';
     }
     function decode(file) {
-      /* returns Promise<{w,h,draw(ctx,w,h)}> or rejects when the browser can't decode (e.g. HEIC on Android) */
       return new Promise(function (resolve, reject) {
         var tryImg = function () {
           var url = URL.createObjectURL(file), img = new Image();
@@ -535,7 +572,7 @@
     function showErr(msg) { errEl.textContent = msg; errEl.style.display = ''; errEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
     function busy(on, label) {
       btn.disabled = on;
-      btn.innerHTML = on ? '<span class="spin"></span><span>' + esc(label || 'Bhej rahe hain…') + '</span>' : icon('arrow-right') + '<span>Problem bhejo</span>';
+      btn.innerHTML = on ? '<span class="spin"></span><span>' + esc(label || 'Bhej rahe hain…') + '</span>' : icon('arrow-right') + '<span>Send report</span>';
     }
 
     form.addEventListener('submit', function (ev) {
@@ -586,10 +623,8 @@
   function boot() {
     mountAllDownloads();
     var page = document.body.getAttribute('data-page');
-    if (page === 'home') initHome();
-    else if (page === 'role') initRole();
+    if (page === 'catalogue') initCatalogue();
     else if (page === 'help') initHelp();
-    /* privacy link in footer honours the catalog when it loads */
     loadCatalog().then(function () {
       qsa('a[data-link]').forEach(function (a) { var v = LINKS[a.getAttribute('data-link')]; if (v) a.href = v; });
     }).catch(function () { /* footer keeps its static links */ });

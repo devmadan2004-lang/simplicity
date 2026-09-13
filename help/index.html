@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#060912">
-<title>Koi problem? Screenshot bhejo — Simplicity</title>
+<title>Report a problem — Simplicity</title>
 <meta name="description" content="Simplicity app mein koi problem? Naam aur problem likho, screenshot lagao — fix hoke aayega.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Simplicity">
-<meta property="og:title" content="Koi problem? Screenshot bhejo — Simplicity">
+<meta property="og:title" content="Report a problem — Simplicity">
 <meta property="og:description" content="Simplicity app mein koi problem? Naam aur problem likho, screenshot lagao — fix hoke aayega.">
 <meta property="og:url" content="https://devmadan2004-lang.github.io/simplicity/help/">
 <meta property="og:image" content="https://devmadan2004-lang.github.io/simplicity/assets/og.png">
@@ -24,20 +24,21 @@
 </head>
 <body data-page="help">
 <header class="hdr"><div class="hdr-in">
-  <a class="brand" href="../"><span class="mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 16.5L12 7l7 9.5" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Simplicity</span></a>
-  <nav class="tabs" aria-label="Roles"><a class="tab" href="../employee/">Employee</a><a class="tab" href="../admin/">Admin</a><a class="tab" href="../hr/">HR</a></nav>
+  <a class="brand" href="../"><span class="mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 16.5L12 7l7 9.5" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="bname">Simplicity</span></a>
+  <nav class="tabs" aria-label="Roles"><a class="tab" href="../">All</a><a class="tab" href="../employee/">Employee</a><a class="tab" href="../admin/">Admin</a><a class="tab" href="../hr/">HR</a></nav>
 </div></header>
 <main class="wrap"><div class="narrow">
-  <section class="hero help-hero" id="helpHero">
+  <section class="help-hero" id="helpHero">
     <div class="appicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M12 8v3M12 14h.01"/></svg></div>
     <div class="eyebrow">Simplicity Projects Pvt Ltd</div>
-    <h1>Koi problem? Screenshot bhejo</h1>
+    <h1>Report a problem</h1>
+    <div class="hi">Koi problem? Screenshot bhejo</div>
     <p class="sub">Naam aur problem likho, screenshot lagao — fix hoke aayega. Bade issue pe Dev khud call karega.</p>
   </section>
 
   <form class="card form" id="hf" novalidate style="padding:20px">
     <div class="field">
-      <label class="label" for="fName">Naam <small>required</small></label>
+      <label class="label" for="fName">Name <small>required</small></label>
       <input class="input" id="fName" name="name" autocomplete="name" placeholder="Aapka naam" required>
     </div>
     <div class="two">
@@ -59,27 +60,27 @@
       </div>
     </div>
     <div class="field">
-      <label class="label" for="fArea">App mein kahan? <small>optional</small></label>
+      <label class="label" for="fArea">Where in the app? <small>optional</small></label>
       <div class="select-wrap"><select class="select" id="fArea" name="app_area">
         <option value="">Choose&hellip;</option>
         <option>Login</option><option>Attendance</option><option>Live map</option><option>DPR</option><option>Chat</option><option>OD</option><option>Expense</option><option>Leave</option><option>Other</option>
       </select></div>
     </div>
     <div class="field">
-      <label class="label" for="fDesc">Kya hua? <small>required</small></label>
+      <label class="label" for="fDesc">What happened? <small>required</small></label>
       <textarea class="textarea" id="fDesc" name="description" required placeholder="Kya hua? Kis screen pe? Kya dikha? — jitna detail, utna jaldi fix"></textarea>
     </div>
     <div class="field">
       <div class="label">Screenshots <small>up to 4</small></div>
       <div class="thumbs" id="thumbs"></div>
       <div class="drop" id="drop" tabindex="0" role="button" aria-label="Add screenshots">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>Screenshot lagao</b><br>Tap karke photo ya screenshot chuno (max 4)
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><b>Add screenshots</b><br>Tap karke photo ya screenshot chuno (max 4)
         <input type="file" id="fFiles" accept="image/*" multiple>
       </div>
       <div class="note" id="fileNote"></div>
     </div>
     <div class="err" id="formErr" style="display:none" role="alert"></div>
-    <button class="btn btn-primary submit" type="submit" id="fSubmit">Problem bhejo</button>
+    <button class="btn btn-primary submit" type="submit" id="fSubmit">Send report</button>
     <div class="note" style="text-align:center">Ye form public hai — sirf problem likho, password ya bank details kabhi nahi.</div>
   </form>
 </div></main>
@@ -88,8 +89,8 @@
     <div class="helpcard-in">
       <div class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M12 8v3M12 14h.01"/></svg></div>
       <div class="helpcard-t">
-        <div class="helpcard-h">कोई problem? Screenshot bhejo &rarr;</div>
-        <div class="helpcard-p">Naam aur problem likho, screenshot lagao — fix hoke aayega.</div>
+        <div class="helpcard-h">Report a problem &rarr;</div>
+        <div class="helpcard-p">Koi problem? Screenshot bhejo — naam aur problem likho, screenshot lagao, fix hoke aayega.</div>
       </div>
     </div>
   </a>
