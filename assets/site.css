@@ -200,7 +200,7 @@ h1,.h1{font-family:var(--head);font-size:31px;line-height:1.12;font-weight:800;l
 .xb.desk{display:none;position:absolute;top:16px;right:16px;z-index:3}
 .sheet-body{display:flex;flex-direction:column;gap:16px;padding:16px 16px 22px;flex:1}
 .player-col{display:flex;justify-content:center;align-items:center}
-.phone{position:relative;height:min(62dvh,620px);max-width:100%;aspect-ratio:9/19.5;border-radius:34px;padding:7px;background:#0b0f1e;box-shadow:0 30px 80px -20px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.14),inset 0 0 0 1px rgba(255,255,255,.05);transition:aspect-ratio .2s}
+.phone{position:relative;height:min(62vh,620px);height:min(62dvh,620px);max-width:100%;aspect-ratio:9/19.5;border-radius:34px;padding:7px;background:#0b0f1e;box-shadow:0 30px 80px -20px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.14),inset 0 0 0 1px rgba(255,255,255,.05);transition:aspect-ratio .2s}
 .phone video{width:100%;height:100%;object-fit:contain;border-radius:28px;background:#000;display:block}
 .phone.wide{aspect-ratio:16/9;height:auto;width:100%;max-width:840px;border-radius:18px;padding:6px}
 .phone.wide video{border-radius:13px}
@@ -249,6 +249,8 @@ h1,.h1{font-family:var(--head);font-size:31px;line-height:1.12;font-weight:800;l
 .select option{color:#0b1220;background:#fff}
 .select-wrap::after{content:"";position:absolute;right:16px;top:50%;width:8px;height:8px;border-right:2px solid #8ea6ff;border-bottom:2px solid #8ea6ff;transform:translateY(-70%) rotate(45deg);pointer-events:none}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.two .label{white-space:nowrap}
+.two .label small{display:none}
 .chips{display:flex;gap:8px}
 .chipbtn{flex:1;padding:11px 8px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:#aebbdd;font-weight:800;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;transition:background .15s,color .15s,box-shadow .15s}
 .chipbtn svg{width:16px;height:16px}

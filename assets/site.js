@@ -167,7 +167,7 @@
   function withVideo(f) { return !!safeUrl(f && f.video); }
 
   /* ---------- video modal ---------- */
-  var M = { el: null, list: [], idx: -1, open: false, lastFocus: null };
+  var M = { el: null, list: [], idx: -1, open: false, lastFocus: null, pushed: false };
 
   function ensureModal() {
     if (M.el) return M.el;
@@ -274,9 +274,9 @@
       var xb = M.el.querySelector('.xb'); if (xb) try { xb.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
     }
     var hash = '#' + it.slug;
-    if (opts.viaHash) { /* URL already carries it */ }
-    else if (opts.replace || (wasOpen && history.state && history.state.simp)) history.replaceState({ simp: it.slug }, '', hash);
-    else history.pushState({ simp: it.slug }, '', hash);
+    if (opts.viaHash) { M.pushed = false; /* URL already carries it (deep link / back-forward) */ }
+    else if (opts.replace || wasOpen) history.replaceState({ simp: it.slug }, '', hash);
+    else { history.pushState({ simp: it.slug }, '', hash); M.pushed = true; }
   }
   function closeModal(opts) {
     opts = opts || {};
@@ -287,9 +287,10 @@
     document.documentElement.classList.remove('lock');
     if (M.lastFocus && M.lastFocus.focus) { try { M.lastFocus.focus({ preventScroll: true }); } catch (e) { /* ignore */ } }
     if (!opts.fromPop) {
-      if (history.state && history.state.simp) history.back();
+      if (M.pushed) history.back();
       else if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     }
+    M.pushed = false;
   }
   window.addEventListener('popstate', function () {
     var idx = indexOfSlug(location.hash.replace(/^#/, ''));
