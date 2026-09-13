@@ -1,0 +1,72 @@
+{
+  "updated": "2026-09-13",
+  "links": {
+    "android": "https://github.com/devmadan2004-lang/simplicity-download/releases/latest/download/simplicity.apk",
+    "ios": "https://testflight.apple.com/join/XgGwYsH2",
+    "download_page": "https://devmadan2004-lang.github.io/simplicity-download/",
+    "help": "https://devmadan2004-lang.github.io/simplicity/help/",
+    "privacy": "https://devmadan2004-lang.github.io/simplicity-download/privacy.html"
+  },
+  "compilation": { "title_hi": "पूरा परिचय — सारे फ़ीचर एक वीडियो में", "title_en": "Complete walkthrough", "video": "", "poster": "", "duration": 0 },
+  "roles": [
+    {
+      "id": "employee", "title_en": "Employees", "title_hi": "कर्मचारी", "tagline": "Office & site staff — attendance, reports, requests",
+      "sections": [
+        { "title_en": "Getting started", "title_hi": "शुरुआत", "features": [
+          { "slug": "install-android", "title_hi": "एंड्रॉइड पर इंस्टॉल", "title_en": "Install on Android", "desc": "APK download → install → login", "icon": "download", "duration": 48,
+            "video": "https://github.com/devmadan2004-lang/simplicity/releases/download/videos-test/02-live-map.mp4",
+            "poster": "" },
+          { "slug": "install-iphone", "title_hi": "आईफ़ोन पर इंस्टॉल", "title_en": "Install on iPhone", "desc": "TestFlight se install → login", "icon": "apple", "duration": 55,
+            "video": "",
+            "poster": "" },
+          { "slug": "login", "title_hi": "लॉगिन", "title_en": "Login with your code", "desc": "Employee code se login, phir apna dashboard", "icon": "key", "duration": 40,
+            "video": "",
+            "poster": "" }
+        ]},
+        { "title_en": "Daily work", "title_hi": "रोज़ का काम", "features": [
+          { "slug": "attendance", "title_hi": "हाज़िरी", "title_en": "Mark attendance", "desc": "Office mein QR scan, site pe GPS se punch-in", "icon": "qr", "duration": 62,
+            "video": "",
+            "poster": "" },
+          { "slug": "dpr", "title_hi": "डेली रिपोर्ट (DPR)", "title_en": "Daily progress report", "desc": "Photo lo, kaam likho, submit — team ko dikhega", "icon": "camera", "duration": 70,
+            "video": "",
+            "poster": "" },
+          { "slug": "leave-od-expense", "title_hi": "छुट्टी, OD और खर्चा", "title_en": "Leave, OD & expense", "desc": "Request bhejo, approval track karo", "icon": "calendar", "duration": 58,
+            "video": "",
+            "poster": "" }
+        ]}
+      ]
+    },
+    {
+      "id": "admin", "title_en": "Admins", "title_hi": "एडमिन", "tagline": "Live map, approvals, reports, team",
+      "sections": [
+        { "title_en": "Oversight", "title_hi": "टीम पर नज़र", "features": [
+          { "slug": "live-map", "title_hi": "लाइव मैप", "title_en": "Live map", "desc": "Kaun kahan hai — poori site team ek map pe", "icon": "map-pin", "duration": 52,
+            "video": "https://github.com/devmadan2004-lang/simplicity/releases/download/videos-test/02-live-map.mp4",
+            "poster": "" },
+          { "slug": "approvals", "title_hi": "अप्रूवल", "title_en": "Approvals", "desc": "Leave, OD, expense — ek tap mein approve ya reject", "icon": "check", "duration": 45,
+            "video": "",
+            "poster": "" },
+          { "slug": "reports", "title_hi": "टीम रिपोर्ट", "title_en": "Team reports", "desc": "DPR, attendance aur expense ka summary", "icon": "file-text", "duration": 60,
+            "video": "",
+            "poster": "" }
+        ]}
+      ]
+    },
+    {
+      "id": "hr", "title_en": "HR", "title_hi": "एच आर", "tagline": "Onboarding, people, attendance records",
+      "sections": [
+        { "title_en": "People", "title_hi": "लोग", "features": [
+          { "slug": "new-joiner", "title_hi": "नया कर्मचारी जोड़ें", "title_en": "Approve new joiners", "desc": "Naye login ko approve karo, role set karo", "icon": "user-plus", "duration": 50,
+            "video": "",
+            "poster": "" },
+          { "slug": "profiles", "title_hi": "प्रोफ़ाइल", "title_en": "People & profiles", "desc": "Details, documents aur designation update", "icon": "users", "duration": 44,
+            "video": "",
+            "poster": "" },
+          { "slug": "attendance-records", "title_hi": "हाज़िरी रिकॉर्ड", "title_en": "Attendance records", "desc": "Mahine ka record dekho, export karo", "icon": "clock", "duration": 47,
+            "video": "",
+            "poster": "" }
+        ]}
+      ]
+    }
+  ]
+}
