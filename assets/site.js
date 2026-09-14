@@ -11,7 +11,7 @@
   })();
 
   var LINKS = {
-    android: 'https://github.com/devmadan2004-lang/simplicity-download/releases/latest/download/simplicity.apk',
+    android: 'https://devmadan2004-lang.github.io/simplicity/android/',
     ios: 'https://testflight.apple.com/join/XgGwYsH2',
     testflight: 'https://apps.apple.com/app/testflight/id899247664',
     download_page: 'https://devmadan2004-lang.github.io/simplicity-download/',
