@@ -26,33 +26,23 @@ h1{font-family:Sora;text-align:center;font-size:30px;line-height:1.08;font-weigh
 <div class="mark"><svg viewBox="0 0 24 24" fill="none" style="width:40px;height:40px"><path d="M5 16.5L12 7l7 9.5" stroke="#fff" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 <div class="eyebrow">SIMPLICITY PROJECTS PVT LTD</div>
 <h1>Install on Android</h1>
-<div class="hi">एंड्रॉइड पर इंस्टॉल — Play Store से</div>
-<p class="sub">Play Store se install hota hai — koi file download nahi, koi "unknown source" nahi. Bas apna Gmail do, phir install.</p>
+<div class="hi">एंड्रॉइड पर इंस्टॉल — Play Store से, 2 tap</div>
+<p class="sub">Play Store se install hota hai — koi file download nahi, koi "unknown source" nahi. Bas ye do tap.</p>
 
-<div class="step"><div class="n">STEP 1</div><h2>Apna Gmail bhejo</h2>
-<p>Jo Gmail is phone ke Play Store mein hai, wahi likho. (Settings → Google mein dikhta hai.)</p>
-<form id="gmailForm" onsubmit="return sendGmail(event)">
-<input id="gmail" type="email" inputmode="email" autocomplete="email" placeholder="naam@gmail.com" required style="width:100%;height:52px;border-radius:14px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);color:#fff;font:600 16px 'Plus Jakarta Sans',sans-serif;padding:0 16px;margin-top:12px;outline:none">
-<input id="pname" type="text" placeholder="Apna naam (optional)" style="width:100%;height:48px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#fff;font:600 15px 'Plus Jakarta Sans',sans-serif;padding:0 16px;margin-top:8px;outline:none">
-<button class="btn" type="submit" id="gmailBtn" style="width:100%;border:0;cursor:pointer">Bhejo →</button>
-</form>
-<p class="note" id="gmailNote">Bhejne ke baad 30 minute ke andar aapka Gmail tester list mein jud jaata hai. Phir Step 2.</p></div>
+<div class="step"><div class="n">TAP 1</div><h2>Join the testers group</h2>
+<p>Google Groups khulega — <b>Join group</b> dabao. Jo Gmail phone ke Play Store mein hai, usi se.</p>
+<a class="btn" id="joinBtn" href="https://groups.google.com/g/simplicity-app-testers">Join group →</a>
+<p class="note">Already joined? Seedha Tap 2.</p></div>
 
-<div class="step"><div class="n">STEP 2</div><h2>Install from Play Store</h2>
-<p>30 min baad ye link kholo → <b>Accept invite</b> → <b>Download test app</b> → Play Store mein <b>Install</b>.</p>
-<a class="btn" id="installBtn" href="https://play.google.com/apps/internaltest/4701549527366647050">Open in Play Store →</a>
-<p class="note">"App not available" dikhe = Gmail abhi list mein nahi juda. Thodi der baad phir try karo, ya neeche wala APK.</p>
+<div class="step"><div class="n">TAP 2</div><h2>Install from Play Store</h2>
+<p>Ye link Play Store kholta hai — <b>Become a tester</b> dabao, phir <b>Install</b>.</p>
+<a class="btn" id="installBtn" href="https://play.google.com/apps/testing/com.devcallinggod.simplicity">Open in Play Store →</a>
 <p class="note">Pehle se APK wala Simplicity laga hai? Use uninstall karo, phir install.</p></div>
 
 <div class="step" style="padding-bottom:14px"><div class="n">AFTER INSTALL</div><h2>Sign in &amp; allow</h2>
 <p>Apna <b>employee code</b> daalo → Sign in. Phir: Notifications <b>Allow</b> · Location <b>Allow all the time</b> · Background use <b>Allow</b>.</p></div>
 
-<a class="btn alt" href="https://github.com/devmadan2004-lang/simplicity-download/releases/latest/download/simplicity.apk">Abhi turant chahiye? APK download karo</a>
-
-<script>
-async function sendGmail(e){e.preventDefault();var g=document.getElementById('gmail').value.trim().toLowerCase();var n=document.getElementById('pname').value.trim();var b=document.getElementById('gmailBtn');var note=document.getElementById('gmailNote');if(!/^[a-z0-9._%+-]+@(gmail\.com|googlemail\.com)$/.test(g)){note.textContent='Sirf Gmail chalega (naam@gmail.com).';return false;}b.textContent='Bhej rahe hain…';b.disabled=true;try{var r=await fetch('https://ejiugojnbdzsshywekmq.supabase.co/rest/v1/play_testers',{method:'POST',headers:{'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVqaXVnb2puYmR6c3NoeXdla21xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc4NzgzMjYsImV4cCI6MjA5MzQ1NDMyNn0.x7s3MGgdga8P6gwwVw8fBKix5ev1CrmvpjddDTnUAJI','Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVqaXVnb2puYmR6c3NoeXdla21xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc4NzgzMjYsImV4cCI6MjA5MzQ1NDMyNn0.x7s3MGgdga8P6gwwVw8fBKix5ev1CrmvpjddDTnUAJI','Content-Type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({gmail:g,name:n||null})});if(r.ok||r.status===409){b.textContent='Mil gaya ✓';note.textContent='Shukriya! 30 min mein aapka Gmail jud jayega — phir Step 2 dabao.';try{localStorage.setItem('simplicity_gmail',g);}catch(_){}}else{throw new Error(r.status);}}catch(err){b.disabled=false;b.textContent='Bhejo →';note.textContent='Bhej nahi paya — internet check karke phir try karo.';}return false;}
-try{var saved=localStorage.getItem('simplicity_gmail');if(saved){document.getElementById('gmail').value=saved;document.getElementById('gmailBtn').textContent='Phir se bhejo';}}catch(_){}
-</script>
+<a class="btn alt" href="https://github.com/devmadan2004-lang/simplicity-download/releases/latest/download/simplicity.apk">Play Store se nahi ho raha? APK download karo</a>
 
 <a class="help" href="https://devmadan2004-lang.github.io/simplicity/help/"><span><div class="t1">Any problem? Send a screenshot</div><div class="t2">Naam + kya hua · कोई दिक्कत? स्क्रीनशॉट भेजिए</div></span></a>
 <div class="foot">© 2026 Simplicity Projects Pvt Ltd</div>
