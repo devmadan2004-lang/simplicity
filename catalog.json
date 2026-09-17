@@ -12,21 +12,21 @@
   "title_hi": "पूरा परिचय — भाग 1: कर्मचारी",
   "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.mp4",
   "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.jpg",
-  "duration": 1022,
+  "duration": 799,
   "parts": [
    {
     "title_en": "Complete walkthrough · Part 1 — Employees",
     "title_hi": "पूरा परिचय — भाग 1: कर्मचारी",
     "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.mp4",
     "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.jpg",
-    "duration": 1022
+    "duration": 799
    },
    {
     "title_en": "Complete walkthrough · Part 2 — Admins & HR",
     "title_hi": "पूरा परिचय — भाग 2: एडमिन और एच आर",
     "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part2.mp4",
     "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part2.jpg",
-    "duration": 751
+    "duration": 528
    }
   ]
  },
