@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-18",
+ "updated": "2026-09-21",
  "links": {
   "android": "https://github.com/devmadan2004-lang/simplicity-download/releases/latest/download/simplicity.apk",
   "ios": "https://testflight.apple.com/join/XgGwYsH2",
@@ -12,14 +12,14 @@
   "title_hi": "पूरा परिचय — भाग 1: कर्मचारी",
   "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.mp4",
   "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.jpg",
-  "duration": 819,
+  "duration": 816,
   "parts": [
    {
     "title_en": "Complete walkthrough · Part 1 — Employees",
     "title_hi": "पूरा परिचय — भाग 1: कर्मचारी",
     "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.mp4",
     "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.jpg",
-    "duration": 819
+    "duration": 816
    },
    {
     "title_en": "Complete walkthrough · Part 2 — Admins & HR",
@@ -151,9 +151,9 @@
        "slug": "leaderboard",
        "title_hi": "लीडरबोर्ड",
        "title_en": "Leaderboard & points",
-       "desc": "Samay pe attendance = 10 point, DPR podium",
+       "desc": "Attendance aur DPR ke do podium — apni rank dekho",
        "icon": "trophy",
-       "duration": 49,
+       "duration": 46,
        "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/leaderboard.mp4",
        "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/leaderboard.jpg"
       }
