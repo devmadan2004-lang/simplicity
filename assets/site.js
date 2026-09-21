@@ -168,6 +168,10 @@
   function withVideo(f) { return !!safeUrl(f && f.video); }
   function walkItem(cat) {
     var c = cat && cat.compilation || {};
+    // each role page plays its OWN walkthrough (parts carry a `role`); the "All" page keeps the first part
+    var pageRole = (document.body && document.body.getAttribute('data-role')) || '';
+    var parts = c.parts || [];
+    for (var pi = 0; pi < parts.length; pi++) { if (parts[pi] && parts[pi].role === pageRole) { c = parts[pi]; break; } }
     return { slug: 'walkthrough', title_hi: c.title_hi || 'पूरा परिचय — सारे फ़ीचर एक वीडियो में', title_en: c.title_en || 'Complete walkthrough',
       video: safeUrl(c.video), poster: safeUrl(c.poster), duration: Number(c.duration) || 0, desc: 'Sab features ek hi video mein — install se approvals tak.', _eyebrow: 'Complete walkthrough' };
   }
