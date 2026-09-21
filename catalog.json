@@ -8,25 +8,36 @@
   "privacy": "https://devmadan2004-lang.github.io/simplicity-download/privacy.html"
  },
  "compilation": {
-  "title_en": "Complete walkthrough · Part 1 — Employees",
-  "title_hi": "पूरा परिचय — भाग 1: कर्मचारी",
+  "role": "employee",
+  "title_en": "Complete walkthrough · Employees",
+  "title_hi": "पूरा परिचय — कर्मचारी",
   "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.mp4",
   "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.jpg",
-  "duration": 816,
+  "duration": 818,
   "parts": [
    {
-    "title_en": "Complete walkthrough · Part 1 — Employees",
-    "title_hi": "पूरा परिचय — भाग 1: कर्मचारी",
+    "role": "employee",
+    "title_en": "Complete walkthrough · Employees",
+    "title_hi": "पूरा परिचय — कर्मचारी",
     "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.mp4",
     "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part1.jpg",
-    "duration": 816
+    "duration": 818
    },
    {
-    "title_en": "Complete walkthrough · Part 2 — Admins & HR",
-    "title_hi": "पूरा परिचय — भाग 2: एडमिन और एच आर",
+    "role": "admin",
+    "title_en": "Complete walkthrough · Admins",
+    "title_hi": "पूरा परिचय — एडमिन",
     "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part2.mp4",
     "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part2.jpg",
-    "duration": 528
+    "duration": 288
+   },
+   {
+    "role": "hr",
+    "title_en": "Complete walkthrough · HR",
+    "title_hi": "पूरा परिचय — एच आर",
+    "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part3.mp4",
+    "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/complete-part3.jpg",
+    "duration": 336
    }
   ]
  },
@@ -123,7 +134,7 @@
        "title_en": "Official duty (OD)",
        "desc": "Client visit ya site — request bhejo, approve hote hi attendance auto",
        "icon": "truck",
-       "duration": 56,
+       "duration": 58,
        "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/od.mp4",
        "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/od.jpg"
       },
@@ -295,7 +306,7 @@
        "title_en": "OD approvals & live trail",
        "desc": "Ek tap approve, phir poora raasta live",
        "icon": "truck",
-       "duration": 44,
+       "duration": 48,
        "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/od-approvals.mp4",
        "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/od-approvals.jpg"
       },
@@ -424,6 +435,16 @@
        "duration": 53,
        "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/hr-home.mp4",
        "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/hr-home.jpg"
+      },
+      {
+       "slug": "hr-od",
+       "title_hi": "ओ डी — रिक्वेस्ट, अप्रूवल और ट्रैकिंग",
+       "title_en": "OD: requests, approval & tracking",
+       "desc": "Staff ko OD lagana bataiye, Pulse se approve kijiye, trip live dekhiye",
+       "icon": "truck",
+       "duration": 98,
+       "video": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/hr-od.mp4",
+       "poster": "https://ejiugojnbdzsshywekmq.supabase.co/storage/v1/object/public/app-videos/hr-od.jpg"
       },
       {
        "slug": "attendance-records",
